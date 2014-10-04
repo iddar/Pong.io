@@ -1,0 +1,12 @@
+{
+  "name": "Pong.io",
+  "version": "0.0.1",
+  "description": "The pong app + websockets",
+  "dependencies": {
+    "express": "4.9.5",
+    "serialport": "1.4.6",
+    "socket.io": "1.1.0",
+    "swig": "1.4.2"
+  },
+  "main": "app.js"
+}
