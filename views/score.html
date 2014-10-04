@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+<script>
+
+  var socket = io();
+
+
+  socket.on("showScore",function(score){
+    console.log("Player 1: "+score[0]);
+    console.log("Player 2: "+score[1]);
+  });
+
+</script>
+
+<h1>Pong.io</h1>
+<p>Score Screen</p>
+
+
+{% endblock %}

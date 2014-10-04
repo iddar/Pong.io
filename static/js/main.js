@@ -12,3 +12,7 @@ socket.on('joystick', function(position){
   console.log("El jugador 1 esta en la posicion: " + position[0]);
   console.log("El jugador 2 esta en la posicion: " + position[1]);
 });
+
+var score = [2,3];
+
+socket.emit('score',score);

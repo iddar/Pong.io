@@ -47,8 +47,17 @@ app.get('/', function(req, res){
 	res.render('index', {});
 });
 
+app.get('/score',function(req,res){
+	res.render('score',{});
+});
+
 io.on('connection', function(socket){
 	console.log('user connected');
+	socket.on('score',function(score){
+		console.log("Player 1: "+score[0]);
+		console.log("Player 2: "+score[1]);
+		io.emit("showScore",score);
+	});
 });
 
 http.listen(3000);
