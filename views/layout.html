@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <title>{% block title %}{% endblock %}</title>
-
   <script src="/socket.io/socket.io.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
+  {% block styles %}{% endblock %}
   {% block scripts %}{% endblock %}
 </head>
 <body>
