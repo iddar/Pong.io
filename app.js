@@ -23,7 +23,6 @@ var port = new SerialPort("/dev/tty.usbmodemfd131",
 	parser: serialport.parsers.readline("\n")
 });
 
-
 port.on('open', function(){
 	console.log('Serial Open');
 	port.on('data', function(line){
@@ -35,7 +34,6 @@ port.on('open', function(){
 		}
 	});
 });
-
 
 eventsIO.on('buttonpress', function (player) {
 	io.emit('button', player);
