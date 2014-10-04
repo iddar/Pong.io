@@ -26,9 +26,9 @@ void loop() {
 }
 
 void player1() {
-  Serial.print("{\"player\": 1 }\n");
+  Serial.print("{\"player\": 0 }\n");
 }
 
 void player2(){
-  Serial.print("{\"player\": 2 }\n");
+  Serial.print("{\"player\": 1 }\n");
 }

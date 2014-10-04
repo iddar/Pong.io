@@ -5,42 +5,17 @@
 }
 
 body{
-	background: #2c3e50;
-}
-
-#gameDiv{
-	background: #3498db;
- 	zoom: 200%
-} 
-
-canvas{
-	margin: 0 auto;
-}
-
-.header{
-	background: #3498db;
-	text-align: center;
-	color: #e67e22;
+	background: #27ae60;
+	font-family: 'Audiowide', cursive;
+	color: #2c3e50;
 }
 
 h1{
-	font-family: 'Audiowide', cursive;
 	font-size: 6em;
-	padding: .5em 0;
+	padding: .5em 1em;
 }
 
-.win{
-	font-family: 'Audiowide', cursive;
-	text-align: center;
-	padding-top: 6em;
-	color: #95a5a6;
-}
-
-.win h2{
-	font-size: 4em;
-}
-
-.win span{
-	font-size: 18em;
-
+p{
+	padding:0.5em 1em;
+	font-size: 2em;
 }

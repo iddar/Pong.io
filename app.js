@@ -23,23 +23,26 @@ var port = new SerialPort("/dev/tty.usbmodemfd131",
 	parser: serialport.parsers.readline("\n")
 });
 
-port.on('data', function(line){
-	try {
-		var data = JSON.parse(line);
-		eventsIO.parse(data);
-		console.log(data);
-		//io.emit('sensor', data.sensor);
-	} catch (e) {
-		console.error(e);
-	}
+
+port.on('open', function(){
+	console.log('Serial Open');
+	port.on('data', function(line){
+		try {
+			var data = JSON.parse(line);
+			eventsIO.parse(data);
+		} catch (e) {
+			console.error(e);
+		}
+	});
 });
 
+
 eventsIO.on('buttonpress', function (player) {
-	console.log(player);
+	io.emit('button', player);
 });
 
 eventsIO.on('analog', function (sensors) {
-	console.log(sensors);
+	io.emit('joystick', sensors);
 });
 
 app.get('/', function(req, res){
@@ -47,7 +50,7 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-	console.log('a user connected');
+	console.log('user connected');
 });
 
 http.listen(3000);
