@@ -8,5 +8,11 @@
     "socket.io": "1.1.0",
     "swig": "1.4.2"
   },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "supertest": "*",
+    "socket.io-client": "*"
+  },
   "main": "app.js"
 }
