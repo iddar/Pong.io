@@ -10,7 +10,6 @@ var options ={
   'force new connection': true
 };
 
-
 describe("Socket Server",function(){
   var client = io.connect(URL, options);
 
@@ -33,7 +32,6 @@ describe("Socket Server",function(){
   });
 
 });
-
 
 describe('Get a home page', function() {
 
