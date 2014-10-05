@@ -4,15 +4,14 @@
 
 	<h1>Pong.io</h1>
 	<p>Un pong como los de antes, pero con tecnologias del futuro.</p>
-
-
+	<div id="gameDiv"></div>
 {% endblock %}
 
-
 {% block styles %}
-<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 {% endblock %}
 
 {% block scripts %}
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="/js/phaser.min.js"></script>
+	<script type="text/javascript" src="/js/juego.js"></script>
 {% endblock %}

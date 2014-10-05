@@ -17,7 +17,7 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-var port = new SerialPort("/dev/tty.usbmodemfd121",
+var port = new SerialPort("/dev/tty.usbmodemfa131",
 {
 	baudrate: 9600,
 	parser: serialport.parsers.readline("\n")
