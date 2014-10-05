@@ -6,8 +6,9 @@
 
 body{
   background: #000;
-  font-family: 'Righteous', normal;
   color: #FFF;
+  text-align: center;
+  font-family: 'Righteous', normal;
 }
 
 h1{
@@ -18,4 +19,9 @@ h1{
 p{
   padding:0.5em 1em;
   font-size: 2em;
+}
+
+.scoreBoard{
+  font-family: 'Audiowide', cursive;
+  font-size: 14em;
 }

@@ -4,18 +4,18 @@ var border = 75;
 
 var mainState = {
 
-    preload: function() { 
+    preload: function() {
         game.stage.backgroundColor = '#333';
 
-        game.load.image('background', 'assets/img/background.png');  
-        game.load.image('bar', 'assets/img/bar.png'); 
+        game.load.image('background', 'assets/img/background.png');
+        game.load.image('bar', 'assets/img/bar.png');
         game.load.image('puck', 'assets/img/puck.png');
 
         // Load the jump sound
-        // game.load.audio('jump', 'assets/jump.wav');     
+        // game.load.audio('jump', 'assets/jump.wav');
     },
 
-    create: function() { 
+    create: function() {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.background = game.add.sprite(0, 0, 'background');
@@ -41,16 +41,20 @@ var mainState = {
             self.updatePos(pos);
         });
 
+        game.input.onDown.add(this.goFull, this);
+
+
     },
 
     update: function() {
         if (this.puck.x <= border || this.puck.x >= game.width - border - this.puck.width) {
-            if (this.puck.x <= border) 
-                this.score.player2 ++;   
+            if (this.puck.x <= border)
+                this.score.player2 ++;
             else
                 this.score.player1 ++;
 
             console.log(this.score);
+            socket.emit('score', this.score);
             this.resetPuck();
         }
         if ( this.puck.y <= border || this.puck.y >= game.height - border) {
@@ -64,7 +68,7 @@ var mainState = {
         game.physics.arcade.overlap(this.puck, [this.player1, this.player2], this.overPuck);
 
         // this.player1.rotation += 0.1;
-            
+
     },
 
     resetPuck: function() {
@@ -92,8 +96,13 @@ var mainState = {
     updatePos: function(pos) {
         this.player1.y = this.player1.height * 0.5 + border + (game.height - this.player1.height * 1.5) * pos[0] / 100;
         this.player2.y = this.player1.height * 0.5 + border + (game.height - this.player1.height * 1.5) * pos[1] / 100;
+    },
+
+    goFull: function(){
+      var elem = document.querySelector('canvas');
+      elem.mozRequestFullScreen();
     }
 };
 
-game.state.add('main', mainState);  
-game.state.start('main'); 
+game.state.add('main', mainState);
+game.state.start('main');
