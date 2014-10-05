@@ -5,17 +5,33 @@
 }
 
 body{
-	background: #27ae60;
+	background: #000;
 	font-family: 'Audiowide', cursive;
-	color: #2c3e50;
+	color: #27ae60;
+	text-align: center;
 }
 
 h1{
-	font-size: 6em;
-	padding: .5em 1em;
+	font-size: 4em;
+	padding: .5em;
 }
 
 p{
 	padding:0.5em 1em;
 	font-size: 2em;
+}
+
+#gameDiv{
+	padding: 1em;;
+}
+
+canvas
+{
+	width: 90%;
+	margin:0 auto;
+}
+
+#foo{
+	font-size: .8em;
+	font-family: 'Righteous', normal;
 }
