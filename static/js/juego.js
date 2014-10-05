@@ -99,8 +99,25 @@ var mainState = {
     },
 
     goFull: function(){
-      var elem = document.querySelector('canvas');
-      elem.mozRequestFullScreen();
+      var canvasGame = document.querySelector('canvas');
+      if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+       (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+        if (canvasGame.requestFullScreen) {
+          canvasGame.requestFullScreen();
+        } else if (canvasGame.mozRequestFullScreen) {
+          canvasGame.mozRequestFullScreen();
+        } else if (canvasGame.webkitRequestFullScreen) {
+          canvasGame.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+      } else {
+        if (document.cancelFullScreen) {
+          document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        }
+      }
     }
 };
 
