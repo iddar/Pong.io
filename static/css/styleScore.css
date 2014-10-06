@@ -39,3 +39,10 @@ p {
     width: 100%;
     height: 100%;
 }
+.winnerDiv {
+    font-size: 6em;
+    text-align: center;
+    float: left;
+    width: 100%;
+    display: none;
+}
