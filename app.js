@@ -17,7 +17,7 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
-var port = new SerialPort("/dev/tty.usbmodem1411",
+var port = new SerialPort("/dev/tty.usbmodemfd131",
 {
 	baudrate: 9600,
 	parser: serialport.parsers.readline("\n")
@@ -54,8 +54,8 @@ app.get('/score',function(req,res){
 io.on('connection', function(socket){
 	console.log('user connected');
 	socket.on('score',function(score){
-		console.log("Player 1: "+score[0]);
-		console.log("Player 2: "+score[1]);
+		console.log("Player 1: "+score.player1);
+		console.log("Player 2: "+score.player2);
 		io.emit("showScore",score);
 	});
 });
