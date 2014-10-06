@@ -6,13 +6,13 @@
 
 body{
 	background: #000;
-	font-family: 'Audiowide', cursive;
-	color: #27ae60;
+	font-family: 'Lato', sans-serif;
+	color: #FF207A;
 	text-align: center;
 }
 
 h1{
-	font-size: 4em;
+	font-size: 3em;
 	padding: .5em;
 }
 
@@ -25,6 +25,12 @@ p{
 	padding: 1em;;
 }
 
+.score{
+	position: relative
+	top:5;
+	z-index:999;
+}
+
 canvas
 {
 	width: 90%;
@@ -32,6 +38,18 @@ canvas
 }
 
 #foo{
-	font-size: .8em;
-	font-family: 'Righteous', normal;
+	font-size: .5em;
+	color: #FFF;
+	font-family: 'Lato', sans-serif;
+}
+
+
+#pink{
+
+
+	font-family: 'Lato', sans-serif;
+	color: #FF2CA7;
+	text-align: center;
+
+
 }
