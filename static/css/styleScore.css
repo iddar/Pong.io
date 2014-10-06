@@ -1,27 +1,41 @@
-*{
-  margin: 0;
-  padding: 0;
-  border: 0;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
-
-body{
-  background: #000;
-  color: #FFF;
-  text-align: center;
-  font-family: 'Righteous', normal;
+body {
+    background: #000;
+    font-family: 'Righteous', normal;
+    color: #FFF;
 }
-
-h1{
-  font-size: 8em;
-  padding: .5em 1em;
+h1 {
+    font-size: 8em;
+    padding: .5em 1em;
+    text-align: center
 }
-
-p{
-  padding:0.5em 1em;
-  font-size: 2em;
+p {
+    padding: 0.5em 1em;
+    font-size: 2em;
 }
-
-.scoreBoard{
-  font-family: 'Audiowide', cursive;
-  font-size: 14em;
+.left-col {
+    font-size: 16em;
+    text-align: center;
+    float: left;
+    width: 25%;
+}
+.center-col {
+    font-size: 15em;
+    text-align: center;
+    float: left;
+    width: 50%;
+}
+.right-col {
+    font-size: 16em;
+    text-align: left;
+    float: left;
+    width: 25%;
+}
+.scoreBoard {
+    width: 100%;
+    height: 100%;
 }
