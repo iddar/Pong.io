@@ -11,16 +11,19 @@ void setup() {
 }
  
 void loop() { 
-  pot1 = map(analogRead(A0),0,1023,0,100);
-  pot2 = map(analogRead(A1),0,1023,0,100);
+  //maping
+  pot1 = map(analogRead(A0),1023,820,0,100);
+  pot2 = map(analogRead(A1),815,1023,0,100);
   if(pot1 != pot1Last || pot2 != pot2Last){
-    Serial.print("{\"analog\":[");
-    Serial.print( pot1 );
-    Serial.print(",");
-    Serial.print( pot2 );
-    Serial.print("]}\n");
-    pot1Last = pot1;
-    pot2Last = pot2;
+    if((pot1 > pot1Last + 1 || pot1 < pot1Last - 1) || (pot2 > pot2Last + 1 || pot2 < pot2Last - 1)){
+      Serial.print("{\"analog\":[");
+      Serial.print( pot1 );
+      Serial.print(",");
+      Serial.print( pot2 );
+      Serial.print("]}\n");
+      pot1Last = pot1;
+      pot2Last = pot2;
+    }
   }
   delay(10);
 }
