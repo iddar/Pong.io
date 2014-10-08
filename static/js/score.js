@@ -6,7 +6,10 @@ socket.on("showScore",function(score){
     playerOne.innerText = '0' + score.player1;
     playerTwo.innerText = '0' + score.player2;
 
-    if(score.player1 === 0 && score.player2 === 0){
+    // if(score.player1 < 7 && score.player2 < 7){
+    //   document.getElementById("winner").style.display = "none";
+    // }
+    if( (score.player1 > 0 && score.player1 < 7) || (score.player2 > 0 && score.player2 < 7)){
       document.getElementById("winner").style.display = "none";
     }
     if(score.player1 === 7){
