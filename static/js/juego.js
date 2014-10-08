@@ -67,6 +67,12 @@ var mainState = {
                 this.score.player1 ++;
 
             console.log(this.score);
+
+            if( this.score.player2 === 7 || this.score.player1 === 7 ){
+              this.score.player2 = 0;
+              this.score.player1 = 0;
+            }
+            
             socket.emit('score', this.score);
             this.resetPuck();
         }
