@@ -37,8 +37,10 @@ var mainState = {
         this.score = {player1: 0, player2: 0}
 
         var self = this;
-        socket.on('joystick', function(pos) {
-            self.updatePos(pos);
+        socket.on('button', function(player){
+          this.resetPuck();
+          this.score.player2 = 0;
+          this.score.player1 = 0;
         });
 
         game.input.onDown.add(this.goFull, this);
@@ -67,6 +69,12 @@ var mainState = {
                 this.score.player1 ++;
 
             console.log(this.score);
+
+            if( this.score.player2 === 7 || this.score.player1 === 7 ){
+              this.score.player2 = 0;
+              this.score.player1 = 0;
+            }
+
             socket.emit('score', this.score);
             this.resetPuck();
         }
