@@ -5,7 +5,7 @@ var border = 75;
 var mainState = {
 
     preload: function() {
-        game.stage.backgroundColor = '#333';
+        game.stage.backgroundColor = '#f82b72';
 
         game.load.image('background', 'assets/img/background.png');
         game.load.image('bar', 'assets/img/bar.png');
@@ -16,6 +16,32 @@ var mainState = {
     },
 
     create: function() {
+    
+    var playerOne = document.querySelector('#PlayerOne');
+    var playerTwo = document.querySelector('#PlayerTwo');
+    var winner = document.querySelector('#winner');
+    socket.on("showScore",function(score){
+        playerOne.innerText = '0' + score.player1;
+        playerTwo.innerText = '0' + score.player2;
+
+        // if(score.player1 < 7 && score.player2 < 7){
+        //   document.getElementById("winner").style.display = "none";
+        // }
+        if( (score.player1 > 0 && score.player1 < 7) || (score.player2 > 0 && score.player2 < 7)){
+          document.getElementById("winner").style.display = "none";
+        }
+        if(score.player1 === 7){
+          winner.innerText = 'Player 1 winner';
+          document.getElementById("winner").style.display = "block";
+        }else if(score.player2 === 7){
+          winner.innerText = 'Player 2 winner';
+          document.getElementById("winner").style.display = "block";
+        }
+    });
+        
+        
+        
+        
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.background = game.add.sprite(0, 0, 'background');
@@ -37,6 +63,9 @@ var mainState = {
         this.score = {player1: 0, player2: 0}
 
         var self = this;
+        socket.on('joystick', function(pos) {
+            self.updatePos(pos);
+        });
         socket.on('button', function(player){
           this.resetPuck();
           this.score.player2 = 0;
@@ -68,7 +97,7 @@ var mainState = {
             else
                 this.score.player1 ++;
 
-            console.log(this.score);
+            //console.log(this.score);
 
             if( this.score.player2 === 7 || this.score.player1 === 7 ){
               this.score.player2 = 0;
@@ -116,7 +145,7 @@ var mainState = {
         game.add.tween(bar).chain().to({rotation: rotation.toString(), x: (push).toString()}, 150, null, true)
             .chain().to({rotation: (-rotation).toString(), x: (-push).toString()}, 150, null, true);
 
-        console.log(diff, percent);
+        //console.log(diff, percent);
         // Cambia dirección
         puck.body.velocity.y = -percent * 1500;
     },
@@ -127,7 +156,7 @@ var mainState = {
     },
 
     goFull: function(){
-      var canvasGame = document.querySelector('canvas');
+      var canvasGame = document.querySelector('body');
       if ((document.fullScreenElement && document.fullScreenElement !== null) ||
        (!document.mozFullScreen && !document.webkitIsFullScreen)) {
         if (canvasGame.requestFullScreen) {

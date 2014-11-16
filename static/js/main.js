@@ -16,3 +16,26 @@ socket.on('joystick', function(position){
 var score = [2,3];
 
 socket.emit('score',score);
+
+window.addEventListener("load", function (){
+  var canvasGame = document.querySelector('body');
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (canvasGame.requestFullScreen) {
+      canvasGame.requestFullScreen();
+    } else if (canvasGame.mozRequestFullScreen) {
+      canvasGame.mozRequestFullScreen();
+    } else if (canvasGame.webkitRequestFullScreen) {
+      canvasGame.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+  }
+});
+

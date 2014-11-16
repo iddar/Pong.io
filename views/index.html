@@ -1,18 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-
-
-
 	<h1>Pink-Ponk.io</h1>
 	<div id="gameDiv">
-		<div class="score">0 : 0</div>
+            <span id="PlayerOne" class="left-col">00</span>
+            <span id="vs" class="center-col">vs</span>
+            <span id="PlayerTwo" class="right-col">00</span>
 	</div>
+<!--
 	<div id="foo">
 		<p>
 			Juego desarrollado por el ninja team de malito corp ©2014.
 		</p>
 	</div>
+-->
 {% endblock %}
 
 {% block styles %}

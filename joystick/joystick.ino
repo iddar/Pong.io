@@ -12,8 +12,12 @@ void setup() {
  
 void loop() { 
   //maping
-  pot1 = map(analogRead(A0),1023,820,0,100);
-  pot2 = map(analogRead(A1),815,1023,0,100);
+  pot1 = map(analogRead(A2), 553, 842, 0, 100);
+  pot2 = map(analogRead(A11), 938, 695, 0, 100);
+  pot1 = constrain(pot1, 0, 100);
+  pot2 = constrain(pot2, 0, 100);
+  //pot1 = analogRead(A2);
+  //pot2 = analogRead(A11);
   if(pot1 != pot1Last || pot2 != pot2Last){
     if((pot1 > pot1Last + 1 || pot1 < pot1Last - 1) || (pot2 > pot2Last + 1 || pot2 < pot2Last - 1)){
       Serial.print("{\"analog\":[");
